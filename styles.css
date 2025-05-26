@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* --- GLOBAL & RESET --- */
 * {
   margin: 0;
   padding: 0;
@@ -14,14 +13,13 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600; /* Default weight from final CSS */
+  font-weight: 600;
   font-style: normal;
   overflow-x: hidden;
   background-color: #1c1c1d;
   color: #fff;
 }
 
-/* --- BACKGROUND VIDEO & OVERLAY --- */
 video {
   position: fixed;
   top: 0;
@@ -40,21 +38,19 @@ video {
   height: 100%;
   background: #1c1c1d;
   opacity: 0.65;
-  z-index: 0; /* Behind content, above video */
+  z-index: 0;
 }
 
-/* --- WRAPPER --- */
 .wrapper {
   width: 100vw;
   min-height: 100vh;
   color: #fff;
   position: relative;
-  z-index: 2; /* Above overlay */
+  z-index: 2;
   display: flex;
   flex-direction: column;
 }
 
-/* --- HEADER --- */
 header {
   padding: 1em 2em;
   display: flex;
@@ -65,15 +61,123 @@ header {
   top: 0;
   background-color: rgba(28, 28, 29, 0.85);
   z-index: 100;
-  min-height: 60px; /* Ensure header has some height */
 }
 
-/* --- HERO SECTION (MAIN) --- */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.lang-btn:hover {
+  background-color: #fff;
+  color: #1c1c1d;
+  border-color: #fff;
+}
+/* Placeholder for .active state */
+/* .lang-btn.active {
+  background-color: #fff;
+  color: #1c1c1d;
+  border-color: #fff;
+} */
+
+.dropdown-content {
+  display: none; /* Hidden by default, JS will toggle */
+  position: absolute;
+  background-color: #2a2a2b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+  z-index: 101;
+  border-radius: 4px;
+  left: 0;
+  margin-top: 5px;
+}
+
+.dropdown-content a {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.dropdown-content.show { /* Class for JS to show */
+  display: block;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-left: 1.8em;
+}
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em 0;
+  position: relative;
+  font-weight: 500;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+.menu a:hover::after {
+  width: 100%;
+  left: 0;
+  background: #fff;
+}
+.menu a:hover {
+  text-decoration: none;
+}
+
 .main {
   margin: 0 auto;
   width: 80vw;
   max-width: 1200px;
-  min-height: calc(100vh - 100px); /* Adjust if header height changes, placeholder value */
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,7 +215,6 @@ header {
   color: #fff;
 }
 
-/* --- Placeholder for other sections --- */
 .bio,
 .music-section,
 .videos,
@@ -120,14 +223,13 @@ header {
 .contact-section {
   padding: 3em 2em;
   position: relative;
-  z-index: 2; /* Above overlay */
-  background-color: rgba(28, 28, 29, 0.6); /* From final CSS */
+  z-index: 2;
+  background-color: rgba(28, 28, 29, 0.6);
   margin-top: 3em;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center; /* Basic alignment */
 }
-.bio:first-of-type, /* From final CSS logic */
+.bio:first-of-type,
 .music-section:first-of-type,
 .videos:first-of-type,
 .shows-section:first-of-type,
@@ -137,20 +239,28 @@ header {
   border-top: none;
 }
 .contact-section {
-  border-bottom: none; /* From final CSS logic */
+  border-bottom: none;
+}
+
+.bio h1, .music-section h1, .videos h1, .shows-section h1, .faq-section h1, .contact-section h2 { /* Basic section title styling */
+    color: #fff;
+    font-size: 2.5em; /* From final CSS */
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 
-/* --- FOOTER --- */
 footer.footer {
   padding: 2em 1em;
-  background-color: #111; /* From final CSS */
+  background-color: #111;
   text-align: center;
   position: relative;
   z-index: 2;
   margin-top: 3em;
 }
-.footer-content { /* Added for consistency with final structure */
+.footer-content {
   color: #aaa;
   font-weight: 400;
 }
@@ -161,9 +271,4 @@ footer.footer {
 }
 .footer-content p {
   font-size: 0.9em;
-}
-
-/* Initial placeholder for currentYear span */
-#currentYear {
-  font-weight: inherit;
 }
