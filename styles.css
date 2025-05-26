@@ -1,34 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* --- GLOBAL & RESET --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: sans-serif;
-  background-color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* Default weight from final CSS */
+  font-style: normal;
+  overflow-x: hidden;
+  background-color: #1c1c1d;
   color: #fff;
 }
 
-.wrapper {
+/* --- BACKGROUND VIDEO & OVERLAY --- */
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1c1c1d;
+  opacity: 0.65;
+  z-index: 0; /* Behind content, above video */
+}
+
+/* --- WRAPPER --- */
+.wrapper {
+  width: 100vw;
   min-height: 100vh;
+  color: #fff;
+  position: relative;
+  z-index: 2; /* Above overlay */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HEADER --- */
+header {
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: rgba(28, 28, 29, 0.85);
+  z-index: 100;
+  min-height: 60px; /* Ensure header has some height */
+}
+
+/* --- HERO SECTION (MAIN) --- */
+.main {
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 1200px;
+  min-height: calc(100vh - 100px); /* Adjust if header height changes, placeholder value */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2em 0;
+}
+
+.main img {
+  max-width: 90%;
+  max-height: 55vh;
+  object-fit: contain;
+  margin-bottom: 2em;
+}
+.info-content {
+  margin-top: 1em;
+}
+
+.listen-main-btn {
+  padding: 12px 30px;
+  background-color: #fff;
+  color: #1c1c1d;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.listen-main-btn:hover {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+/* --- Placeholder for other sections --- */
+.bio,
+.music-section,
+.videos,
+.shows-section,
+.faq-section,
+.contact-section {
+  padding: 3em 2em;
+  position: relative;
+  z-index: 2; /* Above overlay */
+  background-color: rgba(28, 28, 29, 0.6); /* From final CSS */
+  margin-top: 3em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center; /* Basic alignment */
+}
+.bio:first-of-type, /* From final CSS logic */
+.music-section:first-of-type,
+.videos:first-of-type,
+.shows-section:first-of-type,
+.faq-section:first-of-type,
+.contact-section:first-of-type {
+  margin-top: 0;
+  border-top: none;
+}
+.contact-section {
+  border-bottom: none; /* From final CSS logic */
+}
+
+
+/* --- FOOTER --- */
+footer.footer {
+  padding: 2em 1em;
+  background-color: #111; /* From final CSS */
+  text-align: center;
   position: relative;
   z-index: 2;
+  margin-top: 3em;
+}
+.footer-content { /* Added for consistency with final structure */
+  color: #aaa;
+  font-weight: 400;
+}
+.footer-content h4 {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+.footer-content p {
+  font-size: 0.9em;
 }
 
-header, .main, .bio, .music-section, .videos, .shows-section, .faq-section, .contact-section, footer {
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px dashed #555;
-}
-
-header {
-  background-color: #222;
-}
-
-footer {
-  background-color: #222;
-  border-bottom: none;
+/* Initial placeholder for currentYear span */
+#currentYear {
+  font-weight: inherit;
 }

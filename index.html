@@ -3,27 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="name" content="Lola Indigo">
+    <meta name="description" content="Lola Indigo's unofficial website. Discover her music, videos, and latest news.">
+    <meta name="keywords" content="Lola Indigo, music, videos, concerts, news, biography">
+    <meta name="author" content="Antonio Miguel Herrero">
+    <meta name="theme-color" content="#e60073">
+    <link rel="icon" href="./media/favicon.ico" type="image/png">
     <title>LOLA INDIGO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Placeholder for favicon and other meta tags later -->
 </head>
 
 <body>
 
-    <!-- Background video and overlay will go here -->
+    <video muted autoplay loop>
+        <source src="./media/bg-full.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="background-overlay"></div>
 
     <div class="wrapper">
         <header>
-            <p>Header Placeholder</p>
+            <!-- Content will be added in next commits -->
         </header>
 
         <main class="main">
-            <h1>LOLA INDIGO</h1>
-            <p>Main Content Area</p>
+            <img src="./media/text.png" alt="Lola Indigo Logo">
+            <div class="info-content">
+                <a href="https://open.spotify.com/intl-es/album/16QJNLv3LHn3sz5CfmYX8Z" target="_blank">
+                    <button class="listen-main-btn">LISTEN TO EL DRAGÓN</button>
+                </a>
+            </div>
         </main>
 
-        <!-- Content Sections (Bio, Music, etc.) -->
         <div class="bio" id="bio">
             <h2>BIO Section</h2>
         </div>
@@ -44,10 +58,12 @@
         </div>
 
         <footer class="footer">
-            <p>Footer Placeholder © <span id="currentYear">2024</span></p>
+            <h4>Antonio Miguel Herrero © <span id="currentYear">2024</span></h4>
+            <p>This is an unofficial website</p>
         </footer>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
