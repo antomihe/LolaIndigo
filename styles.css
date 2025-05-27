@@ -88,15 +88,9 @@ header {
   color: #1c1c1d;
   border-color: #fff;
 }
-/* Placeholder for .active state */
-/* .lang-btn.active {
-  background-color: #fff;
-  color: #1c1c1d;
-  border-color: #fff;
-} */
 
 .dropdown-content {
-  display: none; /* Hidden by default, JS will toggle */
+  display: none;
   position: absolute;
   background-color: #2a2a2b;
   min-width: 160px;
@@ -123,7 +117,7 @@ header {
   color: #fff;
 }
 
-.dropdown-content.show { /* Class for JS to show */
+.dropdown-content.show {
   display: block;
 }
 
@@ -215,7 +209,8 @@ header {
   color: #fff;
 }
 
-.bio,
+/* General Section Styling */
+.bio, /* Wrapper div for Bio content is outside .wrapper */
 .music-section,
 .videos,
 .shows-section,
@@ -225,30 +220,95 @@ header {
   position: relative;
   z-index: 2;
   background-color: rgba(28, 28, 29, 0.6);
-  margin-top: 3em;
+  margin-top: 3em; /* Applies to sections after the first one */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.bio:first-of-type,
-.music-section:first-of-type,
-.videos:first-of-type,
-.shows-section:first-of-type,
-.faq-section:first-of-type,
-.contact-section:first-of-type {
-  margin-top: 0;
-  border-top: none;
+
+/* Remove top margin for the first section after .wrapper (which is .bio) */
+.wrapper + .bio,
+.wrapper + .music-section, /* If bio wasn't there */
+.wrapper + .videos,
+.wrapper + .shows-section,
+.wrapper + .faq-section,
+.wrapper + .contact-section {
+    margin-top: 0;
+    border-top: none;
 }
-.contact-section {
+.contact-section { /* Last section specific */
   border-bottom: none;
 }
 
-.bio h1, .music-section h1, .videos h1, .shows-section h1, .faq-section h1, .contact-section h2 { /* Basic section title styling */
-    color: #fff;
-    font-size: 2.5em; /* From final CSS */
-    margin-bottom: 1em;
-    text-align: center;
+
+.section-title,
+.section-title-v2 { /* General centered title styling */
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.section-title h1, .section-title h2,
+.section-title-v2 h1, .section-title-v2 h2 { /* Ensure h1/h2 within these divs inherit font size etc. */
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+
+.section-title-left { /* Specific for left-aligned titles like in Bio */
+  text-align: left !important;
+  margin-bottom: 0.5em !important; /* Override general margin */
+}
+.section-title-left h1 {
+    font-size: 2.5em;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: #fff;
+}
+
+
+/* BIO SECTION */
+.bio {
+  display: grid;
+  grid-template-columns: 1fr; /* Default for mobile */
+  gap: 2em;
+  align-items: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bio img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  justify-self: center; /* Center image in its grid cell */
+}
+.bio-info {
+  color: #fff;
+  text-align: left;
+}
+.bio-info p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin-bottom: 1em;
+  text-align: justify;
+  line-height: 1.7;
+}
+.divider {
+  height: 3px;
+  width: 80px;
+  background-color: #e60073; /* Brand color */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+.bio-info .divider { /* Specific to bio if needed, but can be general */
+  margin-left: 0; /* Align to left if text is left-aligned */
 }
 
 
