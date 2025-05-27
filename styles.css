@@ -209,8 +209,7 @@ header {
   color: #fff;
 }
 
-/* General Section Styling */
-.bio, /* Wrapper div for Bio content is outside .wrapper */
+.bio,
 .music-section,
 .videos,
 .shows-section,
@@ -220,14 +219,21 @@ header {
   position: relative;
   z-index: 2;
   background-color: rgba(28, 28, 29, 0.6);
-  margin-top: 3em; /* Applies to sections after the first one */
+  margin-top: 3em;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-/* Remove top margin for the first section after .wrapper (which is .bio) */
+.wrapper + .bio, /* Applies to the very first section after .wrapper */
+.bio + .music-section, /* For subsequent sections */
+.music-section + .videos,
+.videos + .shows-section,
+.shows-section + .faq-section,
+.faq-section + .contact-section {
+    /* No specific rule needed here if all have margin-top: 3em by default */
+}
+/* Ensure the very first section has no top margin/border */
 .wrapper + .bio,
-.wrapper + .music-section, /* If bio wasn't there */
+.wrapper + .music-section, 
 .wrapper + .videos,
 .wrapper + .shows-section,
 .wrapper + .faq-section,
@@ -235,13 +241,14 @@ header {
     margin-top: 0;
     border-top: none;
 }
-.contact-section { /* Last section specific */
+
+.contact-section {
   border-bottom: none;
 }
 
 
 .section-title,
-.section-title-v2 { /* General centered title styling */
+.section-title-v2 {
   color: #fff;
   font-size: 2.5em;
   margin-bottom: 1em;
@@ -250,18 +257,16 @@ header {
   letter-spacing: 2px;
 }
 .section-title h1, .section-title h2,
-.section-title-v2 h1, .section-title-v2 h2 { /* Ensure h1/h2 within these divs inherit font size etc. */
+.section-title-v2 h1, .section-title-v2 h2 {
     font-size: inherit;
     font-weight: inherit;
     color: inherit;
     margin: 0;
     padding: 0;
 }
-
-
-.section-title-left { /* Specific for left-aligned titles like in Bio */
+.section-title-left {
   text-align: left !important;
-  margin-bottom: 0.5em !important; /* Override general margin */
+  margin-bottom: 0.5em !important;
 }
 .section-title-left h1 {
     font-size: 2.5em;
@@ -270,11 +275,9 @@ header {
     color: #fff;
 }
 
-
-/* BIO SECTION */
 .bio {
   display: grid;
-  grid-template-columns: 1fr; /* Default for mobile */
+  grid-template-columns: 1fr;
   gap: 2em;
   align-items: center;
   max-width: 1000px;
@@ -287,7 +290,7 @@ header {
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-  justify-self: center; /* Center image in its grid cell */
+  justify-self: center;
 }
 .bio-info {
   color: #fff;
@@ -303,12 +306,36 @@ header {
 .divider {
   height: 3px;
   width: 80px;
-  background-color: #e60073; /* Brand color */
+  background-color: #e60073;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
-.bio-info .divider { /* Specific to bio if needed, but can be general */
-  margin-left: 0; /* Align to left if text is left-aligned */
+.bio-info .divider {
+  margin-left: 0;
+}
+
+/* MUSIC SECTION */
+.music-section {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-one { 
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2em;
+  margin-bottom: 2em; 
+}
+.spotify-section {
+  flex: 1 1 300px; 
+  min-width: 280px;
+  border-radius: 12px; 
+  overflow: hidden; 
+}
+.spotify-section iframe {
+  border-radius: 12px; 
 }
 
 
