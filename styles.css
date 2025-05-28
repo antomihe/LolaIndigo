@@ -223,17 +223,8 @@ header {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.wrapper + .bio, /* Applies to the very first section after .wrapper */
-.bio + .music-section, /* For subsequent sections */
-.music-section + .videos,
-.videos + .shows-section,
-.shows-section + .faq-section,
-.faq-section + .contact-section {
-    /* No specific rule needed here if all have margin-top: 3em by default */
-}
-/* Ensure the very first section has no top margin/border */
 .wrapper + .bio,
-.wrapper + .music-section, 
+.wrapper + .music-section,
 .wrapper + .videos,
 .wrapper + .shows-section,
 .wrapper + .faq-section,
@@ -241,11 +232,9 @@ header {
     margin-top: 0;
     border-top: none;
 }
-
 .contact-section {
   border-bottom: none;
 }
-
 
 .section-title,
 .section-title-v2 {
@@ -314,28 +303,91 @@ header {
   margin-left: 0;
 }
 
-/* MUSIC SECTION */
-.music-section {
+.music-section,
+.videos { /* videos share some properties with music-section */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
-.container-one { 
+.container-one {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2em;
-  margin-bottom: 2em; 
+  margin-bottom: 2em;
 }
 .spotify-section {
-  flex: 1 1 300px; 
+  flex: 1 1 300px;
   min-width: 280px;
-  border-radius: 12px; 
-  overflow: hidden; 
+  border-radius: 12px;
+  overflow: hidden;
 }
 .spotify-section iframe {
-  border-radius: 12px; 
+  border-radius: 12px;
+}
+
+.video-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Changed from space-around for more grid-like feel */
+  gap: 2em;
+  margin-bottom: 2em;
+}
+.clips {
+  flex: 1 1 300px; /* Grow, shrink, base width for responsiveness */
+  min-width: 280px; /* Minimum width before wrapping */
+  text-align: center;
+}
+.clips img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.clips:hover img {
+  transform: scale(1.05);
+}
+.clips a {
+  color: #fff;
+  text-decoration: none;
+  display: block; /* Make the whole area clickable */
+}
+.clips h2 {
+  margin-top: 0.5em;
+  font-size: 1.1em;
+}
+.clips h3 {
+  font-size: 0.9em;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.view-all-container {
+  text-align: center;
+}
+.view-all-clips-btn {
+  padding: 10px 25px;
+  color: #1c1c1d; /* Text color matches dark theme */
+  background-color: #fff; /* White background */
+  border: 2px solid #fff; /* White border */
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1em; /* Matches final CSS */
+  margin-top: 1em; /* Matches final CSS */
+}
+.view-all-clips-btn:hover {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
 }
 
 
