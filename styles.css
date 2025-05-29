@@ -304,7 +304,7 @@ header {
 }
 
 .music-section,
-.videos { /* videos share some properties with music-section */
+.videos {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -331,19 +331,19 @@ header {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Changed from space-around for more grid-like feel */
+  justify-content: space-between;
   gap: 2em;
   margin-bottom: 2em;
 }
 .clips {
-  flex: 1 1 300px; /* Grow, shrink, base width for responsiveness */
-  min-width: 280px; /* Minimum width before wrapping */
+  flex: 1 1 300px;
+  min-width: 280px;
   text-align: center;
 }
 .clips img {
   width: 100%;
   border-radius: 8px;
-  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -353,7 +353,7 @@ header {
 .clips a {
   color: #fff;
   text-decoration: none;
-  display: block; /* Make the whole area clickable */
+  display: block;
 }
 .clips h2 {
   margin-top: 0.5em;
@@ -370,9 +370,9 @@ header {
 }
 .view-all-clips-btn {
   padding: 10px 25px;
-  color: #1c1c1d; /* Text color matches dark theme */
-  background-color: #fff; /* White background */
-  border: 2px solid #fff; /* White border */
+  color: #1c1c1d;
+  background-color: #fff;
+  border: 2px solid #fff;
   border-radius: 25px;
   transition: all 0.3s ease;
   font-family: "Montserrat", sans-serif;
@@ -381,13 +381,104 @@ header {
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  font-size: 1em; /* Matches final CSS */
-  margin-top: 1em; /* Matches final CSS */
+  font-size: 1em;
+  margin-top: 1em;
 }
 .view-all-clips-btn:hover {
   background-color: transparent;
   border-color: #fff;
   color: #fff;
+}
+
+.shows-section {
+  text-align: center;
+}
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 1em; 
+}
+.shows-section .container-tickets.show-item-lola { 
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #1c1c1d;
+  border-radius: 12px;
+  padding: 1.5em;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px; 
+}
+.show-item-details {
+  flex-grow: 1; 
+}
+.shows-section .container-tickets.show-item-lola h2 {
+  font-size: 1.3em;
+  color: #e60073;
+  margin-bottom: 0.4em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.shows-section .container-tickets.show-item-lola h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+.shows-section .container-tickets.show-item-lola p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+}
+.tickets-lola {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%; 
+  margin-top: 1em; 
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  line-height: normal; 
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+.show-item-button-link {
+    display: block;
+    margin-top: auto; 
+    text-decoration: none;
+}
+.show-item-button-link .tickets-lola {
+    width: 100%;
+}
+.tickets-lola:not([disabled]) { 
+  color: #fff;
+  background-color: #e60073;
+  border-color: #e60073;
+  cursor: pointer;
+}
+.tickets-lola:not([disabled]):hover {
+  background-color: #fff;
+  color: #e60073;
+  border-color: #e60073;
+}
+.tickets-lola-sold-out,
+.tickets-lola[disabled] { 
+  background-color: rgba(28, 28, 29, 0.2) !important;
+  color: rgba(28, 28, 29, 0.6) !important;
+  border-color: rgba(28, 28, 29, 0.3) !important;
+  cursor: not-allowed !important;
+}
+.tickets-lola-sold-out:hover, 
+.tickets-lola[disabled]:hover {
+  background-color: rgba(28, 28, 29, 0.2) !important;
+  color: rgba(28, 28, 29, 0.6) !important;
+  border-color: rgba(28, 28, 29, 0.3) !important;
 }
 
 
