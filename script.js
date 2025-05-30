@@ -4,19 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // Language Dropdown Logic (Basic toggle for now)
     const languageDropdownButton = document.getElementById('language-dropdown-button');
     const languageDropdownContent = document.getElementById('language-dropdown-content');
 
     if (languageDropdownButton && languageDropdownContent) {
         languageDropdownButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevents window click from immediately closing
+            event.stopPropagation();
             languageDropdownContent.classList.toggle('show');
             const isExpanded = languageDropdownContent.classList.contains('show');
             languageDropdownButton.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Close dropdown if clicked outside
         window.addEventListener('click', (event) => {
             if (languageDropdownContent.classList.contains('show') &&
                 !languageDropdownButton.contains(event.target) &&
@@ -26,4 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // FAQ Accordion Script
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+
+        if (header && content) {
+            header.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+
+                // Close all other open items
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('open')) {
+                        otherItem.classList.remove('open');
+                        otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('open');
+                header.setAttribute('aria-expanded', item.classList.contains('open'));
+
+                if (item.classList.contains('open')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        }
+    });
 });
