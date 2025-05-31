@@ -244,12 +244,46 @@
     </div>
 
     <div class="contact-section" id="contact">
-        <div class="section-title">
-             <h2 data-translate-key="contact_title">CONTACT</h2>
+        <div class="container-contact">
+            <img src="./media/contact.png" alt="Lola Indigo contact image">
+            <div class="contact-form">
+                <h2 data-translate-key="contact_title">CONTACT</h2>
+                <p style="color: #fff; margin-bottom: 1em;" data-translate-key="contact_p1">
+                    For professional matters,
+                    management, or press inquiries, please use Lola Indigo's official contact channels.
+                </p>
+                <form class="form" action="#" method="POST">
+                    <input type="text" name="nombre" data-translate-key="contact_form_name_placeholder"
+                        placeholder="Name" required>
+                    <input type="email" name="email" data-translate-key="contact_form_email_placeholder"
+                        placeholder="Email" required>
+                    <textarea name="mensaje" data-translate-key="contact_form_message_placeholder"
+                        placeholder="Write your message here" required></textarea>
+                    <button type="submit" class="btn-submit" data-translate-key="contact_form_submit_button">
+                        Send
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
+        <div class="social-links-container">
+            <a href="https://www.instagram.com/lolaindigo/" target="_blank" class="social-icon"
+                aria-label="Lola Indigo's Instagram">
+            </a>
+            <a href="https://x.com/lolaindigomusic" target="_blank" class="social-icon"
+                aria-label="Lola Indigo's Twitter">
+            </a>
+            <a href="https://open.spotify.com/intl-es/artist/3bvfu2KAve4lPHrhEFDZna" target="_blank" class="social-icon"
+                aria-label="Lola Indigo's Spotify"></a>
+            <a href="https://www.youtube.com/@lolaindigochannel" target="_blank" class="social-icon"
+                aria-label="Lola Indigo's YouTube">
+            </a>
+            <a href="https://www.tiktok.com/@lolainditok" target="_blank" class="social-icon"
+                aria-label="Lola Indigo's TikTok">
+            </a>
+        </div>
         <div class="footer-content">
             <h4 id="footerCopyright">Antonio Miguel Herrero © <span id="currentYear"></span></h4>
             <p data-translate-key="footer_credits">This is an unofficial website</p>
