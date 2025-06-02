@@ -1,6 +1,6 @@
-#  Lola Indigo - Unofficial Fan Website 💃🎤
+#  Lola Indigo - Website Concept 💃🎤
 
-A responsive, multi-language unofficial fan website concept for the artist Lola Indigo, built with HTML, CSS, and JavaScript. This project serves as a showcase of her work and provides information for fans.
+A responsive, multi-language website concept for the artist Lola Indigo, built with HTML, CSS, and JavaScript. This project showcases her career, music, videos, and public information in a modern and engaging format.
 
 ## ✨ Features
 
@@ -76,4 +76,4 @@ The project follows a standard web project structure:
 
 ## ⚠️ Disclaimer
 
-This is an unofficial fan-made website created for informational and entertainment purposes only. It is not affiliated with Lola Indigo or her official management. All copyrighted content (music, videos, images) belongs to their respective owners.
+This project is intended as a modern concept proposal for an artist's website, focusing on user experience, accessibility, and internationalization. It is not affiliated with Lola Indigo or her official management. All copyrighted content (music, videos, images) belongs to their respective owners.
